@@ -82,3 +82,12 @@
     height: 23vw;
     border-radius: 3vw;
 }
+.EmployeeList
+{
+    font-size: 2vw;
+    gap:1vw;
+    border:0.1vw solid black;
+    padding: 0vw;
+   
+
+}
