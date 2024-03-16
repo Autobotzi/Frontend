@@ -3,8 +3,10 @@ import "../CSS/SignUp.css";
 import HomeBackground from '../Imagini/HomeBackground.png';
 import Line from '../Imagini/Line.png';
 import Ellipse from '../Imagini/Ellipse.png';
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "", // Changed to email to match the request body schema
@@ -35,6 +37,7 @@ const SignUp = () => {
       if (response.ok) {
         // Success
         console.log("User signed up successfully!");
+        navigate("/login");
       } else {
         // Handle error
         console.error("Sign up failed");

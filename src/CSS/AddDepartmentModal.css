@@ -1,0 +1,43 @@
+.add-department-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Grayish tint */
+    display: none;
+    z-index: 20;
+  }
+  
+  .add-department-overlay.visible {
+    display: block;
+  }
+  
+
+.add-department-field {
+    margin-bottom: 20px;
+}
+
+.add-department-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-department-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-department-button {
+    text-align: center;
+}
+
+.add-department-button .p-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
