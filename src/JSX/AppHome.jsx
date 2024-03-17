@@ -9,10 +9,11 @@ import EditIcon from "../Imagini/EditIcon.png";
 import PhotoProfile from "../Imagini/PhotoProfile.png";
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from "./Navbar";
-import { MdAdd } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 import DepInfoBackground from "../Imagini/DepInfoBackground.png";
 import AboutProjectBackground from "../Imagini/AboutProjectBackground.png";
 import axios from 'axios';
+import EditDepartmentModal from './EditDepartmentModal'; // Import the EditDepartmentModal component
 
 const AppHome = () => {
     
@@ -21,6 +22,8 @@ const AppHome = () => {
   const [users, setUsers] = useState([]);
   const location = useLocation();
   const [error, setError] = useState(null);
+  const [editing, setEditing] = useState(false); // State to track editing status
+  const [userToEdit, setUserToEdit] = useState(null); // State to store the user being edited
 
   useEffect(() => {
     const email = localStorage.getItem('email');
@@ -60,6 +63,7 @@ const AppHome = () => {
       console.error("Error fetching user data:", error);
     }
   };
+
   const fetchUsersByDepartment = async (departmentName) => {
     try {
       const token = localStorage.getItem('token');
@@ -74,8 +78,14 @@ const AppHome = () => {
       console.error("Error fetching users by department:", error);
     }
   };
+
   const [departmentName, setDepartmentName] = useState("");
 
+  // Function to handle edit action
+  const handleEdit = (user) => {
+    setUserToEdit(user);
+    setEditing(true);
+  };
 
   return (
     <div className="AdminContainer">
@@ -84,7 +94,7 @@ const AppHome = () => {
         <div className="DepInfoContainer">
           <div className="AddRowDep">
             <div className="namePageDep-Home"><p className="titleDep-Home">{departmentName || "Example Department"}</p></div>
-            <div className="addDep-Home"><Link className="addDep-Home"><MdAdd /></Link></div>
+            <Link className="addDep-Home" onClick={handleEdit}><MdEdit /></Link>
           </div>
           <img src={DepInfoBackground} alt="" className="DepInfoBackground" />
           <div className="AddRowDep">
@@ -116,14 +126,23 @@ const AppHome = () => {
         <div className="EmployeeListConntainer">
           <div className="titleEmployee">Employer List</div>
           <div className="EmployeeList">
-        <ul>
-          {users.map(user => (
-            <li key={user.email}>{user.name} - {user.email}</li>
-          ))}
-        </ul>
-      </div>
+            <ul>
+              {users.map(user => (
+                <li key={user.email}>
+                  {user.name} - {user.email}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
+      {/* Edit Department Modal */}
+<EditDepartmentModal
+  visible={editing}
+  onHide={() => setEditing(false)}
+  departmentToEdit={userToEdit} // Pass departmentToEdit instead of user
+/>
+
     </div>
   );
 };

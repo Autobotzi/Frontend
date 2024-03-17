@@ -84,10 +84,13 @@
 }
 .EmployeeList
 {
-    font-size: 2vw;
+    font-size: 1.7vw;
     gap:1vw;
-    border:0.1vw solid black;
+   
     padding: 0vw;
+    
+    margin-top: 3vw;
+
    
 
 }
