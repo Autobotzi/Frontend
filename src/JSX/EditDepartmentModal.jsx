@@ -4,20 +4,23 @@ import { Button } from 'primereact/button';
 import axios from 'axios';
 import '../CSS/AddDepartmentModal.css'; // Import CSS file
 
-const EditDepartmentModal = ({ visible, onHide, departmentToEdit }) => {
+const EditDepartmentModal = ({ visible, onHide }) => {
     const [formData, setFormData] = useState({
         name: '',
         description: ''
     });
+    const [originalName, setOriginalName] = useState('');
 
     useEffect(() => {
-        if (departmentToEdit) {
-            setFormData({
-                name: departmentToEdit.name || '',
-                description: departmentToEdit.description || ''
-            });
+        const storedDepartmentName = localStorage.getItem('departmentName');
+        if (storedDepartmentName) {
+            setFormData(prevState => ({
+                ...prevState,
+                name: storedDepartmentName
+            }));
+            setOriginalName(storedDepartmentName);
         }
-    }, [departmentToEdit]);
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,33 +38,37 @@ const EditDepartmentModal = ({ visible, onHide, departmentToEdit }) => {
                 return;
             }
     
-            if (!departmentToEdit) {
-                console.error("Department to edit is not defined.");
-                return;
-            }
-    
             console.log("Department data to be updated:", formData);
-            console.log("Department name being edited:", departmentToEdit.name);
     
-            const { name, description } = formData; // Extract name and description from formData
-
-        const response = await axios.put(`https://autobotzi-ccec90c77ecb.herokuapp.com/departments/update?name=${encodeURIComponent(name)}`, {
-            name,
-            description
-        }, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        });
+            const { name, description } = formData;
+    
+            const response = await axios.put(`https://autobotzi-ccec90c77ecb.herokuapp.com/departments/update?name=${encodeURIComponent(originalName)}`, {
+                name,
+                description
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
     
             console.log("Department updated successfully:", response.data);
+    
+            // Update local storage with the new name
+            localStorage.setItem('departmentName', name);
+    
             onHide();
             setFormData({
                 name: '',
                 description: ''
             });
-            window.location.reload(); // Consider better ways to update UI after edit
+    
+            // Reload current page
+            window.location.reload();
+    
+            // Reload additional pages
+            window.open('/admin', '_blank').location.reload();
+          
         } catch (error) {
             console.error("Error editing department:", error);
         }
