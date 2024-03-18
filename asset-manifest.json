@@ -1,16 +1,22 @@
 {
   "files": {
-    "main.css": "/Frontend/static/css/main.8b592835.css",
-    "main.js": "/Frontend/static/js/main.72572069.js",
-    "static/js/453.8ab44547.chunk.js": "/Frontend/static/js/453.8ab44547.chunk.js",
-    "static/media/Arame-Mono.ttf": "/Frontend/static/media/Arame-Mono.30cf26d3acad327a9ba4.ttf",
-    "index.html": "/Frontend/index.html",
-    "main.8b592835.css.map": "/Frontend/static/css/main.8b592835.css.map",
-    "main.72572069.js.map": "/Frontend/static/js/main.72572069.js.map",
-    "453.8ab44547.chunk.js.map": "/Frontend/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "/react-gh-pages/static/css/main.81af6795.css",
+    "main.js": "/react-gh-pages/static/js/main.6c1a9ef8.js",
+    "static/js/453.8ab44547.chunk.js": "/react-gh-pages/static/js/453.8ab44547.chunk.js",
+    "static/media/DepProfileImage.png": "/react-gh-pages/static/media/DepProfileImage.cb12cca51bb3c5002b27.png",
+    "static/media/Arame-Mono.ttf": "/react-gh-pages/static/media/Arame-Mono.30cf26d3acad327a9ba4.ttf",
+    "static/media/PhotoProfile.png": "/react-gh-pages/static/media/PhotoProfile.a1dc1d6e3d66d975abce.png",
+    "static/media/NotificationIcon.png": "/react-gh-pages/static/media/NotificationIcon.ce78555efe8b78a88dea.png",
+    "static/media/UserIcon.png": "/react-gh-pages/static/media/UserIcon.2fbb12f7049d09f52d43.png",
+    "static/media/HomeIcon.png": "/react-gh-pages/static/media/HomeIcon.4129118e0a82c1b83eb9.png",
+    "static/media/ExitIcon.png": "/react-gh-pages/static/media/ExitIcon.3dc9261dcf3e6feccf7c.png",
+    "index.html": "/react-gh-pages/index.html",
+    "main.81af6795.css.map": "/react-gh-pages/static/css/main.81af6795.css.map",
+    "main.6c1a9ef8.js.map": "/react-gh-pages/static/js/main.6c1a9ef8.js.map",
+    "453.8ab44547.chunk.js.map": "/react-gh-pages/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b592835.css",
-    "static/js/main.72572069.js"
+    "static/css/main.81af6795.css",
+    "static/js/main.6c1a9ef8.js"
   ]
 }
