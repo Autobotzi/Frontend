@@ -1,5 +1,4 @@
-.MessageContainer
-{
+.MessageContainer {
     position: relative;
     top: 4%;
     left: 10%;
@@ -9,58 +8,67 @@
     background-color: #E5F3FE;
 }
 
-.MessageBox{
+.MessageBox {
     position: relative;
     top: 0.5%;
     left: 0.5%;
     border-radius: 2.5vw;
     border-bottom-right-radius: 0vw;
     border-bottom-left-radius: 0vw;
-    height: 90%;
+    height: calc(99% - 4.1vw);
     width: 99%;
     background-color: #11d0f1;
+    overflow-y: auto; /* Adaugati bara de derulare pe axa Y daca continutul este prea lung */
 
 }
 
-.bottomMessage{
-    
-    position: relative;
+.bottomMessage {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0.5%;
     background-color: #2d0f42;
-    height: 9.5%;
+    height: 4.1vw;
     left: 0.5%;
     border-radius: 2.5vw;
     border-top-right-radius: 0vw;
     border-top-left-radius: 0vw;
     width: 99%;
     justify-content: center;
-
 }
 
-.inputMessage{
+.inputMessage {
     position: relative;
     width: 77%;
-    margin-left: 2%;
-    top: 1%;
-    height: 77%;
+    top: 3%;
+    height: 80%;
     border-radius: 2.5vw;
-
+    margin-left: 2%;
+    font-size: 1.6vw;
+    border: none;
+    background-color: #ECFCFF;
 
 }
-.btn1,.btn2,.btn3{
-    top: 5%;
+.inputMessage:focus{
+    outline: none; /* Remove default focus outline */
+}
+
+
+.btn1, .btn2, .btn3 {
+    border: none;
+    top: 17%;
     position: relative;
-    margin-left: 2%;
+    margin-left: 1%;
     width: 2.5vw;
     height: 2.5vw;
     border-radius: 2.5vw;
+    background-color: #ECFCFF;
 
 }
+.btn1{
+    margin-left: 3%;
+}
 
-
-
-.ContactListContainer
-{
-
+.ContactListContainer {
     position: relative;
     top: 4%;
     left: 13%;
@@ -68,6 +76,72 @@
     width: 19%;
     border-radius: 2.5vw;
     background-color: #ECFCFF;
-    overflow-y: auto; /* Adăugați bara de derulare pe axa Y dacă conținutul este prea lung */
+}
 
+.contactList
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 2%;
+    left: 0.5%;
+    border-radius: 2.5vw;
+    border-bottom-right-radius: 0vw;
+    border-bottom-left-radius: 0vw;
+    height: calc(98% - 4.1vw);
+    width: 99%;
+    gap: 1vw;
+    overflow-y: auto; /* Adaugati bara de derulare pe axa Y daca continutul este prea lung */
+
+}
+
+.searchContact {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0.5%;
+    height: 4.1vw;
+    left: 0.5%;
+    border-radius: 2.5vw;
+    border-top-right-radius: 0vw;
+    border-top-left-radius: 0vw;
+    width: 99%;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.inputSearchContact{
+    position: relative;
+    width: 90%;
+    top: 3%;
+    height: 80%;
+    border-radius: 2.5vw;
+    margin-left: 4%;
+    font-size: 1.6vw;
+    border: none;
+    background-color: #ECFCFF;
+    text-align: center;
+    font-family: 'Arame-Mono';
+    color: #048097;
+
+}
+.contactList::-webkit-scrollbar,
+.MessageBox::-webkit-scrollbar {
+    width: 0vw; /* Width of the scrollbar */
+}
+
+.inputSearchContact::placeholder{
+    text-align: center;
+    color: #048097;
+opacity: 70%;
+    font-family: 'Arame-Mono';
+}
+.inputSearchContact:focus{
+    outline-color: #048097;
+}
+
+@font-face {
+    font-family: 'Arame-Mono';
+    src: url('../../public/fonts/Arame-Mono.ttf') format('truetype');
 }

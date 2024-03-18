@@ -84,7 +84,7 @@ return (
         <div className="DepList">
             <div className="AddRow">
                 <div className="namePageDep"><p className="titleDep">Departments</p></div>
-                <div className="addDep"><Link className="addDep" onClick={handleAddModalToggle}><MdAdd /></Link></div>
+                <div className="addDep"><Link className="addDepIcon" onClick={handleAddModalToggle}><MdAdd /></Link> <div className="tooltipDep">Add Department</div></div>
             </div>
             <div className="DepListContainer">
                {departments.map((department, index) => (
