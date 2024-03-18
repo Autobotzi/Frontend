@@ -25,7 +25,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       // Construct the URL with the adminEmail query parameter
-      const url = `https://autobotzi-ccec90c77ecb.herokuapp.com/auth/sign-up?adminEmail=admin%40admin`;
+      const url = `https://autobotzi-ccec90c77ecb.herokuapp.com/auth/sign-up?adminEmail=admin%40new.com`;
 
       const response = await fetch(url, {
         method: "POST",
