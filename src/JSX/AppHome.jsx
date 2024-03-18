@@ -26,13 +26,13 @@ const AppHome = () => {
   const [userToEdit, setUserToEdit] = useState(null); // State to store the user being edited
 
   useEffect(() => {
-    const email = localStorage.getItem('email');
+    const email = sessionStorage.getItem('email');
     if (email) {
       fetchUser(email);
     } else {
-      console.error("No email found in localStorage.");
+      console.error("No email found in sessionStorage.");
     }
-    const storedDepartmentName = localStorage.getItem('departmentName');
+    const storedDepartmentName = sessionStorage.getItem('departmentName');
     if (storedDepartmentName) {
       setDepartmentName(storedDepartmentName);
       fetchUsersByDepartment(storedDepartmentName);
@@ -41,9 +41,9 @@ const AppHome = () => {
 
   const fetchUser = async (email) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
       if (!token) {
-        console.error("Token not found in localStorage.");
+        console.error("Token not found in sessionStorage.");
         return;
       }
 
@@ -66,7 +66,7 @@ const AppHome = () => {
 
   const fetchUsersByDepartment = async (departmentName) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
       const response = await axios.get(`https://autobotzi-ccec90c77ecb.herokuapp.com/user/get-by-department?departmentName=${departmentName}`, {
         headers: {
           Authorization: `Bearer ${token}`

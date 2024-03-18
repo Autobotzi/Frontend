@@ -21,6 +21,9 @@ const AddDepartmentModal = ({ visible, onHide }) => {
 
     const handleSubmit = async () => {
         try {
+
+            
+
             // Verifică dacă input-urile sunt goale
             if (!formData.name || !formData.description) {
                 console.error("Name and description are required.");
@@ -29,9 +32,10 @@ const AddDepartmentModal = ({ visible, onHide }) => {
                 return;
             }
     
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
+
             if (!token) {
-                console.error("Token not found in localStorage.");
+                console.error("Token not found in sessionStorage.");
                 return;
             }
     

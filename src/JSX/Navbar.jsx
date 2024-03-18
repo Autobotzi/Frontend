@@ -25,7 +25,7 @@ function Navbar(){
   
     const handleLogout = () => {
       // Clear the token from local storage
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       // Redirect the user to the login page
       navigate("/login");
     };
