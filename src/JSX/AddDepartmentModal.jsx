@@ -4,6 +4,7 @@ import { Button } from 'primereact/button';
 import axios from 'axios';
 import '../CSS/AddDepartmentModal.css'; // Import CSS file
 
+
 const AddDepartmentModal = ({ visible, onHide }) => {
     const [formData, setFormData] = useState({
         name: '',
@@ -20,25 +21,33 @@ const AddDepartmentModal = ({ visible, onHide }) => {
 
     const handleSubmit = async () => {
         try {
+            // Verifică dacă input-urile sunt goale
+            if (!formData.name || !formData.description) {
+                console.error("Name and description are required.");
+                // Afișează un mesaj de avertizare că input-urile sunt necesare
+                alert("Name and description are required.");
+                return;
+            }
+    
             const token = localStorage.getItem('token');
             if (!token) {
                 console.error("Token not found in localStorage.");
                 return;
             }
-
+    
             const adminEmail = ''; // Set adminEmail to the required value
-
+    
             console.log("Department data to be sent:", formData);
-
+    
             const response = await axios.post(`https://autobotzi-ccec90c77ecb.herokuapp.com/departments/add`, formData, {
                
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-
+    
             console.log("Department added successfully:", response.data);
-
+    
             onHide();
             setFormData({
                 name: '',
@@ -67,7 +76,7 @@ const AddDepartmentModal = ({ visible, onHide }) => {
                         <input id="description" type="text" name="description" value={formData.description} onChange={handleChange} />
                     </div>
                     <div className="add-department-button">
-                        <Button label="Submit" onClick={handleSubmit} />
+                        <Button label="Confirm" onClick={handleSubmit} />
                     </div>
                 </div>
             </Dialog>

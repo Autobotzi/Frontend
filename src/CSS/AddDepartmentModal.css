@@ -1,3 +1,24 @@
+
+
+.add-department-dialog {
+    pointer-events: none; /* Dezactivează evenimentele de cursor pe modal */
+    font-family: 'Arame-Mono';
+    color: #082A3E;
+    font-size: 25px;
+    text-align: center;
+}
+
+.add-department-dialog .p-dialog-content {
+    margin-top: 20px;
+    pointer-events: auto; /* Activează evenimentele de cursor pentru conținutul modalului */
+}
+
+.add-department-dialog .p-dialog-content input {
+    pointer-events: auto; /* Activează evenimentele de cursor pentru input-urile din interiorul modalului */
+}
+
+
+
 .add-department-overlay {
     position: fixed;
     top: 0;
@@ -7,29 +28,71 @@
     background-color: rgba(0, 0, 0, 0.5); /* Grayish tint */
     display: none;
     z-index: 20;
-  }
-  
-  .add-department-overlay.visible {
-    display: block;
-  }
-  
+    
+}
 
-.add-department-field {
+
+
+.add-department-overlay.visible {
+    display: block;
+}
+.add-department-content {
+    color: #082A3E;
+    font-family: 'Arame-Mono';
+}
+
+.add-department-field { 
     margin-bottom: 20px;
 }
 
+.add-department-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35vw; /* Lățimea modalului */
+    width: 500px; /* Lățimea modalului */
+    height: 45vh; /* Lățimea modalului */
+    height: 330px; /* Lățimea modalului */
+    background-color: #E5F3FE;
+    border-radius: 2vw;
+    padding: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Umbră pentru efect de adâncime */
+}
+
 .add-department-field label {
+    font-size: 15px;
+    text-align: left;
     display: block;
+    margin-left: 10px;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #E5F3FE inset !important;
+}
+
+
 .add-department-field input {
+    
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 1.2vw;
+    border-style: solid;
+    border-color: #082A3E;
     font-size: 16px;
+    background-color: transparent;
+}
+
+input:focus{
+    outline: none; /* Remove default focus outline */
 }
 
 .add-department-button {
@@ -37,7 +100,34 @@
 }
 
 .add-department-button .p-button {
-    width: 100%;
+    border-radius: 1.5vw;
+    font-family: 'Arame-Mono';
+    width:30%;
     padding: 10px;
     font-size: 16px;
+    background-color: transparent;
+    margin-left: 70%;
+    border-style: solid;
+}
+
+.p-button:hover{
+
+    background-color: yellow;
+}
+.add-department-dialog .p-dialog-header-close-icon {
+    order: 2; /* Plasează butonul de închidere la finalul containerului */
+    cursor: pointer; /* Face cursorul să devină de tip pointer la trecerea peste buton */
+    padding: 20%;
+    border-radius: 10px;
+}
+
+.add-department-dialog .p-dialog-header-close-icon:hover {
+    /* Stilurile pentru efectul de hover */
+    background-color: red; /* Schimbă culoarea de fundal */
+    color: #E5F3FE; /* Schimbă culoarea textului */
+}
+
+@font-face {
+    font-family: 'Arame-Mono';
+    src: url('../../public/fonts/Arame-Mono.ttf') format('truetype');
 }
