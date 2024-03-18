@@ -23,9 +23,9 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
             if (!token) {
-                console.error("Token not found in localStorage.");
+                console.error("Token not found in sessionStorage.");
                 return;
             }
 
@@ -41,19 +41,19 @@ const Admin = () => {
     };
 
     fetchData();
-    const email = localStorage.getItem('email');
+    const email = sessionStorage.getItem('email');
     if (email) {
         fetchUser(email);
     } else {
-        console.error("No email found in localStorage.");
+        console.error("No email found in sessionStorage.");
     }
 }, []);
 
 const fetchUser = async (email) => {
     try {
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
         if (!token) {
-            console.error("Token not found in localStorage.");
+            console.error("Token not found in sessionStorage.");
             return;
         }
 

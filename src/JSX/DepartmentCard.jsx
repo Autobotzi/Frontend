@@ -7,7 +7,7 @@ import { Button } from 'primereact/button';
 
 const DepartmentCard = ({ name, manager, description }) => {
   const handleClick = () => {
-    localStorage.setItem('departmentName', name);
+    sessionStorage.setItem('departmentName', name);
     console.log("Department Name:", name);
   };
   return (  

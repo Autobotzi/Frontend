@@ -12,7 +12,7 @@ const EditDepartmentModal = ({ visible, onHide }) => {
     const [originalName, setOriginalName] = useState('');
 
     useEffect(() => {
-        const storedDepartmentName = localStorage.getItem('departmentName');
+        const storedDepartmentName = sessionStorage.getItem('departmentName');
         if (storedDepartmentName) {
             setFormData(prevState => ({
                 ...prevState,
@@ -32,9 +32,9 @@ const EditDepartmentModal = ({ visible, onHide }) => {
 
     const handleEdit = async () => {
         try {
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
             if (!token) {
-                console.error("Token not found in localStorage.");
+                console.error("Token not found in sessionStorage.");
                 return;
             }
     
@@ -55,7 +55,7 @@ const EditDepartmentModal = ({ visible, onHide }) => {
             console.log("Department updated successfully:", response.data);
     
             // Update local storage with the new name
-            localStorage.setItem('departmentName', name);
+            sessionStorage.setItem('departmentName', name);
     
             onHide();
             setFormData({

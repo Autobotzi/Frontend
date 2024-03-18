@@ -20,9 +20,9 @@ const AddDepartmentModal = ({ visible, onHide }) => {
 
     const handleSubmit = async () => {
         try {
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
             if (!token) {
-                console.error("Token not found in localStorage.");
+                console.error("Token not found in sessionStorage.");
                 return;
             }
 
