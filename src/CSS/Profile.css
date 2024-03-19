@@ -47,6 +47,7 @@
     flex-direction: row;
     height: 18vw;
     gap: 0vw;
+    margin-top: 6vw;
    
 }
 .ProfileBkg{
@@ -216,7 +217,7 @@
 {
     position:absolute;
     z-index: 2;
-    font-size: 3.5vw;
+    font-size: 2vw;
     font-family: 'Arame-Mono';
     color:black;
     margin-top: -14vw;
