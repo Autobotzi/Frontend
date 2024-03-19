@@ -107,6 +107,7 @@ return (
                             onChange={handleSearchChange} // Call handleSearchChange on input change
                           
                         />
+                         <div className="tooltipInputDep">Search by department name</div>
                     </div>
             </div>
 
