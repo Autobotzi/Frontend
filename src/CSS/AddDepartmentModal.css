@@ -9,6 +9,7 @@
     user-select: none;
 }
 
+
 .add-department-dialog .p-dialog-content {
     margin-top: 20px;
     pointer-events: auto; /* Activează evenimentele de cursor pentru conținutul modalului */

@@ -85,19 +85,19 @@ const AddProjectModal = ({ visible, onHide }) => {
             <Dialog visible={visible} onHide={onHide} className="modal-content" modal header="Add Department"  closeOnEscape={false}>
                 <div className="modalBox">
                 <label>Name:</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                <input type="text" name="name" className="inputModalBox" value={formData.name} onChange={handleChange} />
                 <label>Description:</label>
-                <input type="text" name="description" value={formData.description} onChange={handleChange} />
+                <input type="text" name="description" className="inputModalBox" value={formData.description} onChange={handleChange} />
                 <label>Period:</label>
-                <input type="text" name="period" value={formData.period} onChange={handleChange} />
+                <input type="text" name="period" className="inputModalBox" value={formData.period} onChange={handleChange} />
                 <label>Project Status:</label>
-                <input type="text" name="projectStatus" value={formData.projectStatus} onChange={handleChange} />
+                <input type="text" name="projectStatus" className="inputModalBox" value={formData.projectStatus} onChange={handleChange} />
                 <label>Start Date:</label>
-                <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} />
+                <input type="date" name="startDate" className="inputModalBox" value={formData.startDate} onChange={handleChange} />
                 <label>Deadline:</label>
-                <input type="date" name="deadline" value={formData.deadline} onChange={handleChange} />
+                <input type="date" name="deadline" className="inputModalBox" value={formData.deadline} onChange={handleChange} />
                 <label>Technology:</label>
-                <input type="text" name="technology" value={formData.technology} onChange={handleChange} />
+                <input type="text" name="technology" className="inputModalBox" value={formData.technology} onChange={handleChange} />
                 <Button label="Add" onClick={handleAddProject} />
                 </div>
                 </Dialog>

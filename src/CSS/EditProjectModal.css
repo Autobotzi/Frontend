@@ -22,15 +22,35 @@
 }
 
 .edit-project-dialog {
-    width: 400px;
+    font-family: 'Arame-Mono';
+    position: relative; /* Ensure the close button is positioned relative to the modal */
+    background-color: #E5F3FE;
     padding: 20px;
-    background-color: #fff;
+    width: 600px;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 1.5vw;
+    color: #082A3E;
+    font-size: 25px;
 }
 
+
+
 .edit-project-content {
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: left;
     display: flex;
     flex-direction: column;
+}
+
+.edit-project-content label{
+
+    font-size: 15px;
+    text-align: left;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .edit-project-field {
@@ -42,12 +62,10 @@
     margin-bottom: 5px;
 }
 
-.edit-project-field input,
 .edit-project-field select {
+    font-family: 'Arame-Mono';
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-width: 2px;
     font-size: 16px;
 }
 

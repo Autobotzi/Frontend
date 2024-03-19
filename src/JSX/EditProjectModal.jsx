@@ -99,7 +99,7 @@ const EditProjectModal = ({ visible, onHide }) => {
                 <div className="edit-project-content">
                     <div className="edit-project-field">
                         <label htmlFor="projectName">Project Name</label>
-                        <select id="projectName" name="projectName" value={selectedProjectName} onChange={(e) => setSelectedProjectName(e.target.value)}>
+                        <select id="projectName" className="inputModalBox" name="projectName" value={selectedProjectName} onChange={(e) => setSelectedProjectName(e.target.value)}>
                             <option value="">Select a project</option>
                             {projectNames.map((projectName, index) => (
                                 <option key={index} value={projectName}>{projectName}</option>
@@ -108,19 +108,19 @@ const EditProjectModal = ({ visible, onHide }) => {
                     </div>
                     <div className="edit-project-field">
                         <label htmlFor="name">Name</label>
-                        <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} />
+                        <input id="name" type="text" className="inputModalBox" name="name" value={formData.name} onChange={handleChange} />
                     </div>
                     <div className="edit-project-field">
                         <label htmlFor="description">Description</label>
-                        <input id="description" type="text" name="description" value={formData.description} onChange={handleChange} />
+                        <input id="description" type="text" className="inputModalBox" name="description" value={formData.description} onChange={handleChange} />
                     </div>
                     <div className="edit-project-field">
                         <label htmlFor="period">Period</label>
-                        <input id="period" type="text" name="period" value={formData.period} onChange={handleChange} />
+                        <input id="period" type="text" className="inputModalBox" name="period" value={formData.period} onChange={handleChange} />
                     </div>
                     <div className="edit-project-field">
                         <label htmlFor="status">Status</label>
-                        <input id="status" type="text" name="status" value={formData.status} onChange={handleChange} />
+                        <input id="status" type="text" className="inputModalBox" name="status" value={formData.status} onChange={handleChange} />
                     </div>
                     <div className="edit-project-button">
                         <Button label="Confirm" onClick={handleSubmit} />

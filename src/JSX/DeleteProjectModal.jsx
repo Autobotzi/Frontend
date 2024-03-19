@@ -67,8 +67,7 @@ const DeleteProjectModal = ({ visible, onHide }) => {
             <Dialog visible={visible} onHide={onHide} className="delete-project-dialog" modal header="Delete Project" closeOnEscape={false}>
                 <div className="delete-project-content">
                     <div className="delete-project-field">
-                        <label htmlFor="projectName">Select Project to Delete:</label>
-                        <select id="projectName" value={selectedProjectName} onChange={(e) => setSelectedProjectName(e.target.value)}>
+                        <select id="projectName" className="inputModalBox" value={selectedProjectName} onChange={(e) => setSelectedProjectName(e.target.value)}>
                             <option value="">Select a project</option>
                             {projectNames.map((projectName, index) => (
                                 <option key={index} value={projectName}>{projectName}</option>

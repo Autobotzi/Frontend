@@ -195,6 +195,13 @@ svg {
 
 }
 
+.dropdownItem:hover{
+    border-radius: 1.2vw;
+    background-color: #048097;
+    color: #ECFCFF;
+
+}
+
 .dropdownItem {
   cursor: pointer;
   padding: 0.3vw;

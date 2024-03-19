@@ -21,35 +21,44 @@
     opacity: 1;
 }
 
+.delete-project-dialog {
+    font-family: 'Arame-Mono';
+    position: relative; /* Ensure the close button is positioned relative to the modal */
+    background-color: #E5F3FE;
+    padding: 20px;
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 1.5vw;
+    color: #082A3E;
+    font-size: 25px;
+}
+
 .delete-project-modal {
     width: 400px;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
 }
 
 .delete-project-modal-content {
+
     display: flex;
     flex-direction: column;
 }
 
 .delete-project-field {
-    margin-bottom: 20px;
+    margin: 20px;
+
 }
 
-.delete-project-field label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+
 
 .delete-project-field select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-width: 2px;
     font-size: 16px;
+    font-family: 'Arame-Mono';
+
 }
 
-.delete-project-button {
-    text-align: center;
-}
