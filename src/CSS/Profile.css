@@ -262,6 +262,10 @@
     margin-top: 23vw;
     margin-right: -19.5vw;
 }
+.addSkills:hover{
+    background-color: #339EB1; 
+
+}
 
 .SkillsContainer
 {
