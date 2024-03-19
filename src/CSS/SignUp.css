@@ -2,8 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 97vh;
+    height: 100vh;
     position: relative; 
+    background-image: linear-gradient(to right, #D9d9d9, #048097);
 }
 .NameLabel-SingUp
 {
