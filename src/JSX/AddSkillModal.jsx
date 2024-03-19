@@ -67,17 +67,17 @@ const AddSkillModal = ({ isOpen, onClose }) => {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" name="name" value={name} onChange={handleNameChange} required />
+                        <input type="text" id="name" name="name" className="inputModalBox" value={name} onChange={handleNameChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description:</label>
-                        <textarea id="description" name="description" value={description} onChange={handleDescriptionChange} required></textarea>
+                        <textarea  id="description" name="description" value={description}    onChange={handleDescriptionChange} required></textarea>
                     </div>
                     <div className="form-group">
                         <label htmlFor="category">Category:</label>
-                        <input type="text" id="category" name="category" value={category} onChange={handleCategoryChange} required />
+                        <input  type="text" id="category" name="category" className="inputModalBox" value={category} onChange={handleCategoryChange} required />
                     </div>
-                    <button type="submit">Add Skill</button>
+                    <button className="btnSkills" type="submit">Add Skill</button>
                 </form>
             </div>
         </div>

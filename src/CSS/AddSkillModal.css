@@ -12,10 +12,17 @@
 }
 
 .modal-content {
-    background-color: #fff; /* White background for the modal content */
+    font-family: 'Arame-Mono';
+    position: relative; /* Ensure the close button is positioned relative to the modal */
+    background-color: #E5F3FE;
     padding: 20px;
+    width: 600px;
     border-radius: 8px;
-    width: 50%; /* Adjust the width as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 1.5vw;
+    color: #082A3E;
+    font-size: 25px;
 }
 
 .close {
@@ -23,7 +30,16 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 20px;
+    padding: 0.5%;
+    font-size: 40px;
+    cursor: pointer; /* Face cursorul să devină de tip pointer la trecerea peste buton */
+    border-radius: 10px;
+}
+
+.close:hover {
+    /* Stilurile pentru efectul de hover */
+    background-color: red; /* Schimbă culoarea de fundal */
+    fill: #E5F3FE; /* Schimbă culoarea textului */
 }
 
 .form-group {
@@ -34,25 +50,35 @@ label {
     font-weight: bold;
 }
 
-input[type="text"],
 textarea {
-    width: 100%;
+    border-right: #E5F3FE;
+    border-width: 2px;
+    padding: 2%;
+    width: 97%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 1.2vw;
+    border-style: solid;
+    border-color: #082A3E;
     font-size: 16px;
+    background-color: transparent;
+    resize: none;
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff; /* Blue button color */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+.btnSkills {
+    border-radius: 1.5vw;
+    font-family: 'Arame-Mono';
+    width:30%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    margin-left: 70%;
+    border-style: solid;
     cursor: pointer;
-    font-size: 16px;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.btnSkills:hover{
+    background-color: yellow;
+}
+textarea::-webkit-scrollbar {
+    width: 0vw; /* Width of the scrollbar */
 }
