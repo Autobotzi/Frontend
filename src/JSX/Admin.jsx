@@ -18,6 +18,7 @@ const Admin = () => {
   const [date, setDate] = useState(null);
   const [user, setUser] = useState({});
   const [departments, setDepartments] = useState([]);
+  const [employees, setEmployees] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
@@ -29,24 +30,32 @@ const Admin = () => {
                 return;
             }
 
-            const response = await axios.get('https://autobotzi-ccec90c77ecb.herokuapp.com/departments/all', {
+            const departmentResponse = await axios.get('https://autobotzi-ccec90c77ecb.herokuapp.com/departments/all', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setDepartments(response.data);
+            setDepartments(departmentResponse.data);
+
+            const email = sessionStorage.getItem('email');
+            if (email) {
+                await fetchUser(email);
+            } else {
+                console.error("No email found in sessionStorage.");
+            }
+
+            const employeesResponse = await axios.get('https://autobotzi-ccec90c77ecb.herokuapp.com/user/all', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setEmployees(employeesResponse.data);
         } catch (error) {
-            console.error("Error fetching department data:", error);
+            console.error("Error fetching data:", error);
         }
     };
 
     fetchData();
-    const email = sessionStorage.getItem('email');
-    if (email) {
-        fetchUser(email);
-    } else {
-        console.error("No email found in sessionStorage.");
-    }
 }, []);
 
 const fetchUser = async (email) => {
@@ -119,24 +128,14 @@ return (
             </div>
 
             <div className="EmployeeListConntainer">
-                <div className="titleEmployee">Employer List</div>
+                <div className="titleEmployee">Employee List</div>
                 <div className="EmployeeList">
-                <div className="EmployeeRow">
-                    <img src={PhotoProfile} alt="" className="EmployeeLstImg" />
-                    <p className="EmployeeLstName">I don t have a name lmao</p>
-                </div>
-                <div className="EmployeeRow">
-                    <img src={PhotoProfile} alt="" className="EmployeeLstImg" />
-                    <p className="EmployeeLstName">I don t have a name lmao</p>
-                </div>
-                <div className="EmployeeRow">
-                    <img src={PhotoProfile} alt="" className="EmployeeLstImg" />
-                    <p className="EmployeeLstName">I don t have a name lmao</p>
-                </div>
-                <div className="EmployeeRow">
-                    <img src={PhotoProfile} alt="" className="EmployeeLstImg" />
-                    <p className="EmployeeLstName">I don t have a name lmao</p>
-                </div>
+                {employees.map((employee, index) => (
+                    <div className="EmployeeRow" key={index}>
+                        <img src={PhotoProfile} alt="" className="EmployeeLstImg" />
+                        <p className="EmployeeLstName">{employee.name}</p>
+                    </div>
+                ))}
                 </div>
             </div>
         </div>
