@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="HomeContainer-Login">
+    <div className="HomeContainer">
       <img src={HomeBackground} alt="" className="HomeBackground-STYLE-Login" />
       <div className="HomeContent-SingUp">
         <img src={Line} alt="" className="Line-STYLE-Login" />
@@ -57,7 +57,7 @@ const Login = () => {
         <div className="ChoiceLabel-Login">Login</div>
         <form className="Login" onSubmit={handleSubmit}>
           <div className="Collumn-Input-Login">
-            <input type="email" className="textbox-Login" id="email" name="email" placeholder="E mail" value={formData.email} onChange={handleChange} required />
+            <input type="email" className="textbox-Login" id="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required ></input>
             <input type="password" className="textbox-Login" id="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
           </div>
           <button type="submit" className="button-Login">Continue</button>

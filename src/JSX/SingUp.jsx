@@ -48,7 +48,7 @@ const SignUp = () => {
   };
 
   return (  
-    <div className="HomeContainer-SingUp">
+    <div className="HomeContainer">
       <img src={HomeBackground} alt="" className="HomeBackground-STYLE-SingUp" />
       <div className="HomeContent-SingUp">
         <img src={Line} alt="" className="Line-STYLE-SingUp" />
@@ -57,11 +57,11 @@ const SignUp = () => {
         <img src={Ellipse} alt="" className="Ellipse1-STYLE-SingUp" />
         <img src={Ellipse} alt="" className="Ellipse2-STYLE-SingUp" />
         <div className="NameLabel-SingUp">Team Finder</div>
-        <div className="ChoiceLabel-SingUp">Sign Up</div>
+        <div className="ChoiceLabel-SingUp">SignUp</div>
         <form className="SingUp" onSubmit={handleSubmit}>
           <div className="Collumn-Input-SingUp">
             <input type="text" className="textbox-SingUp" id="name" name="name" placeholder="Name" required value={formData.name} onChange={handleChange} />
-            <input type="email" className="textbox-SingUp" id="email" name="email" placeholder="E mail" required value={formData.email} onChange={handleChange} />
+            <input type="email" className="textbox-SingUp" id="email" name="email" placeholder="Email" required value={formData.email} onChange={handleChange} />
             <input type="password" className="textbox-SingUp" id="password" name="password" placeholder="Password" required value={formData.password} onChange={handleChange} />
           </div>
           <button type="submit" className="button-SignUp">Submit</button>

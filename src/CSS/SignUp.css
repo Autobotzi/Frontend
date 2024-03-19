@@ -1,3 +1,4 @@
+
 .HomeContainer-SingUp {
     display: flex;
     justify-content: center;
@@ -6,12 +7,16 @@
     position: relative; 
     background-image: linear-gradient(to right, #D9d9d9, #048097);
 }
+
+
+
 .NameLabel-SingUp
 {
     user-select: none;
 }
 
 .HomeBackground-STYLE-SingUp {
+    user-select: none;
     width: 60vw;
     height: auto; 
     padding-top: 1.5vw;
@@ -20,6 +25,7 @@
 }
 
 .HomeContent-SingUp{
+        user-select: none;
     position: absolute; 
     top: 50%; 
     transform: translateY(-50%); 
@@ -151,6 +157,16 @@
     gap:2.25vw;
 }
 
+
+.Collumn-Input-SingUp input:-webkit-autofill,
+.Collumn-Input-SingUp input:-webkit-autofill:hover, 
+.Collumn-Input-SingUp input:-webkit-autofill:focus, 
+.Collumn-Input-SingUp input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 40px #048097 inset !important;
+    -webkit-text-fill-color: white !important;
+
+}
+
 .button-SignUp{
     position: absolute; 
     top: 14.25vw; 
@@ -164,6 +180,11 @@
     background-color:#FFD600;
     border:0.1vw solid #b98a00;
     border-radius: 1.12vw;
+}
+
+.button-SignUp:hover{
+    cursor: pointer;
+    background-color:yellow;
 }
 
 @font-face {

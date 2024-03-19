@@ -11,6 +11,7 @@
     user-select: none;
 }
 
+
 .HomeBackground-STYLE-Login {
     width: 60vw;
     height: auto; 
@@ -202,8 +203,24 @@
     letter-spacing: 0.08vw;
     background-color:#FFD600;
     border:0.1vw solid #b98a00;
-    border-radius: 1.12vw;
+    border-radius: 1.2vw;
 }
+
+.button-Login:hover{
+    cursor: pointer;
+    background-color:yellow;
+
+}
+
+.Collumn-Input-Login input:-webkit-autofill,
+.Collumn-Input-Login input:-webkit-autofill:hover, 
+.Collumn-Input-Login input:-webkit-autofill:focus, 
+.Collumn-Input-Login input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 40px #048097 inset !important;
+    -webkit-text-fill-color: white !important;
+
+}
+
 
 @font-face {
     font-family: 'Arame-Mono';
