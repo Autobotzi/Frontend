@@ -11,11 +11,13 @@
   z-index: 1000;
 }
   .ModalContent {
-    background-color: #fff;
-    border-radius: 8px;
+    font-family: 'Arame-Mono';
+    background-image: radial-gradient(circle, #ffffff, #d9d9d9);
+    color: #082A3E;
+    border-radius: 2vw;
     max-width: 400px;
     margin: auto;
-    padding: 20px;
+    padding: 2vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     text-align: center;
@@ -26,11 +28,15 @@
   }
   
   .ModalButton {
-    padding: 10px 20px;
-    background-color: #048097;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+    border-radius: 1.5vw;
+    font-family: 'Arame-Mono';
+    width:30%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border-style: solid;
     cursor: pointer;
   }
-  
+  .ModalButton:hover{
+    background-color: yellow;
+  }
