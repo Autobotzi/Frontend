@@ -98,36 +98,31 @@ const AppHome = () => {
 
   // Function to handle delete action
   // Function to handle delete action
-  const handleDelete = async (email, role) => {
+  const handleDelete = async (email) => {
     try {
-      const token = sessionStorage.getItem('token');
-      if (!token) {
-        console.error("Token not found in sessionStorage.");
-        return;
-      }
-  
-      const requestBody = {
-        email: email,
-        role: role
-      };
-  
-      console.log("Request Body:", requestBody); // Log the request body
-  
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        data: requestBody
-      };
-  
-      await axios.delete('https://autobotzi-ccec90c77ecb.herokuapp.com/user/roles/delete', config);
-      // After successful deletion, refetch users
-      fetchUsersByDepartment(departmentName);
+        const token = sessionStorage.getItem('token');
+        if (!token) {
+            console.error("Token not found in sessionStorage.");
+            return;
+        }
+
+        // Construct the URL with the email parameter
+        const url = `https://autobotzi-ccec90c77ecb.herokuapp.com/departments/members/delete?email=${email}`;
+
+        // Make the DELETE request
+        await axios.delete(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        // After successful deletion, refetch users by department
+        fetchUsersByDepartment(departmentName);
     } catch (error) {
-      console.error("Error deleting user:", error);
+        console.error("Error deleting user:", error);
     }
-  };
+};
+
   const fetchProjectDetails = async (departmentName) => {
     try {
       const token = sessionStorage.getItem('token');

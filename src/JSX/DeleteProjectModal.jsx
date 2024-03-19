@@ -53,6 +53,7 @@ const DeleteProjectModal = ({ visible, onHide }) => {
             console.log("Project deleted successfully:", response.data);
 
             onHide();
+            window.location.reload();
         } catch (error) {
             console.error("Error deleting project:", error);
         }
