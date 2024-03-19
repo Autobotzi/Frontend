@@ -1,21 +1,25 @@
-import Navbar from "./Navbar";
-import '../CSS/Projects.css';
-import { MdAdd, MdEdit } from "react-icons/md";
+// Projects.js
+import React, { useState, useEffect } from 'react';
+import { MdAdd, MdEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import ProjectCard from "../JSX/ProjectCard";
 import axios from 'axios';
 import AddProjectModal from "../JSX/AddProjectModal";
 import EditProjectModal from "../JSX/EditProjectModal";
+import ProjectCard from "../JSX/ProjectCard";
+import DeleteProjectModal from "../JSX/DeleteProjectModal"; // Import the DeleteProjectModal component
+import '../CSS/Projects.css';
+import Navbar from "./Navbar";
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false); // State variable for showing the delete modal
     const [searchQuery, setSearchQuery] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedProjectName, setSelectedProjectName] = useState('');
+    const [deleteProjectName, setDeleteProjectName] = useState('');
 
     const toggleAddModal = () => {
         setShowAddModal(!showAddModal);
@@ -23,6 +27,10 @@ const Projects = () => {
 
     const toggleEditModal = () => {
         setShowEditModal(!showEditModal);
+    };
+
+    const toggleDeleteModal = () => {
+        setShowDeleteModal(!showDeleteModal); // Toggle the delete modal
     };
 
     const toggleDropdown = () => {
@@ -41,6 +49,35 @@ const Projects = () => {
     const handleEditClick = (projectName) => {
         setSelectedProjectName(projectName);
         toggleEditModal();
+    };
+
+    const handleDeleteSelect = (projectName) => {
+        setDeleteProjectName(projectName);
+        toggleDeleteModal(); // Open the delete modal when a project name is selected
+    };
+
+    const handleDeleteClick = async () => {
+        try {
+            const token = sessionStorage.getItem('token');
+            if (!token) {
+                console.error("Token not found in sessionStorage.");
+                return;
+            }
+
+            const response = await axios.delete(`https://autobotzi-ccec90c77ecb.herokuapp.com/projects?name=${deleteProjectName}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            console.log("Project deleted successfully:", response.data);
+
+            // Remove the deleted project from the state
+            setProjects(prevProjects => prevProjects.filter(project => project.name !== deleteProjectName));
+            toggleDeleteModal(); // Close the delete modal after successful deletion
+        } catch (error) {
+            console.error("Error deleting project:", error);
+        }
     };
 
     useEffect(() => {
@@ -90,13 +127,14 @@ const Projects = () => {
             <div className="workspaceProjects">
                 <div className="headerProjects">
                     <div className="namePageProject"><p className="titleProjects">Projects</p></div>
-                    <div onClick={toggleAddModal} className="addProjects"><Link><MdAdd/></Link> <div className="tooltipProj">Add project</div></div>
-                    <div onClick={toggleEditModal} className="addProjects"><Link><MdEdit/></Link> <div className="tooltipProj">Edit project</div></div>
+                    <div onClick={toggleAddModal} className="addProjects"><Link><MdAdd /></Link> <div className="tooltipProj">Add project</div></div>
+                    <div onClick={toggleEditModal} className="addProjects"><Link><MdEdit /></Link> <div className="tooltipProj">Edit project</div></div>
+                    <div onClick={toggleDeleteModal} className="addProjects"><Link><MdDelete /></Link> <div className="tooltipProj">Delete project</div></div>
                     <div className="searchProject">
                         <input
                             className="inputSearchProject"
                             type="text"
-                            placeholder="Search by project name"
+                            placeholder="Search"
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
@@ -129,6 +167,8 @@ const Projects = () => {
             </div>
             <AddProjectModal visible={showAddModal} onHide={toggleAddModal} />
             <EditProjectModal visible={showEditModal} onHide={toggleEditModal} projectName={selectedProjectName} />
+            {/* Render the DeleteProjectModal component with props */}
+            <DeleteProjectModal visible={showDeleteModal} onHide={toggleDeleteModal} projectName={deleteProjectName} onDelete={handleDeleteClick} />
         </div>
     );
 };

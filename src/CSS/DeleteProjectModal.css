@@ -1,0 +1,55 @@
+/* DeleteProjectModal.css */
+
+.delete-project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.delete-project-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.delete-project-modal {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.delete-project-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-project-field {
+    margin-bottom: 20px;
+}
+
+.delete-project-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.delete-project-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.delete-project-button {
+    text-align: center;
+}
