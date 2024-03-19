@@ -128,8 +128,9 @@ const Profile = () => {
 
                     </div>
                     <div className="InfoCollumn">
-                        <img src={AboutExpBkg} alt="" className="AboutExpBkg" />
+                        <div className="AboutExpBkg" >
                         <p className="AboutExp">About Experience</p>
+                        </div>
                     </div>
                 </div>
             </div>
