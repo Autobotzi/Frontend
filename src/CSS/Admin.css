@@ -250,26 +250,25 @@
     margin-bottom: 0.5vw;
 }
 .titleEmployee{
-
     text-align: center;
     font-size: 1.2vw;
     font-family: 'Arame-Mono';
     color: black;
     position: absolute; 
     width: 15vw;
+    height: 20%;
     top: 1vw; 
     left: 0vw; 
     z-index: 1;
 }
 .EmployeeList {
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    height: 78%;
-    margin-top: 3.5vw;
-    margin-left: 0vw;
+    height: 66%;
     gap: 1.5vw;
     position: absolute;
     z-index: 1;
@@ -297,6 +296,7 @@
 }
 
 .EmployeeLstName {
+    font-family: 'Arame-Mono';
     font-size: 1.1vw;
     color: black;
 }
