@@ -1,21 +1,28 @@
 import Navbar from "./Navbar";
 import '../CSS/Projects.css';
-import { MdAdd } from "react-icons/md";
+import { MdAdd, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import ProjectCard from "../JSX/ProjectCard";
 import axios from 'axios';
 import AddProjectModal from "../JSX/AddProjectModal";
+import EditProjectModal from "../JSX/EditProjectModal";
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedProjectName, setSelectedProjectName] = useState('');
 
     const toggleAddModal = () => {
         setShowAddModal(!showAddModal);
+    };
+
+    const toggleEditModal = () => {
+        setShowEditModal(!showEditModal);
     };
 
     const toggleDropdown = () => {
@@ -29,6 +36,11 @@ const Projects = () => {
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
+    };
+
+    const handleEditClick = (projectName) => {
+        setSelectedProjectName(projectName);
+        toggleEditModal();
     };
 
     useEffect(() => {
@@ -79,11 +91,12 @@ const Projects = () => {
                 <div className="headerProjects">
                     <div className="namePageProject"><p className="titleProjects">Projects</p></div>
                     <div onClick={toggleAddModal} className="addProjects"><Link><MdAdd/></Link> <div className="tooltipProj">Add project</div></div>
+                    <div onClick={toggleEditModal} className="addProjects"><Link><MdEdit/></Link> <div className="tooltipProj">Edit project</div></div>
                     <div className="searchProject">
                         <input
                             className="inputSearchProject"
                             type="text"
-                            placeholder="Search "
+                            placeholder="Search by project name"
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
@@ -109,11 +122,13 @@ const Projects = () => {
                             name={project.name}
                             startDate={project.startDate}
                             deadline={project.deadLine}
+                            onEdit={() => handleEditClick(project.name)}
                         />
                     ))}
                 </div>
             </div>
             <AddProjectModal visible={showAddModal} onHide={toggleAddModal} />
+            <EditProjectModal visible={showEditModal} onHide={toggleEditModal} projectName={selectedProjectName} />
         </div>
     );
 };

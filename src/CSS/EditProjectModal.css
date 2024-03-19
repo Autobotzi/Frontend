@@ -1,0 +1,56 @@
+/* EditProjectModal.css */
+
+.edit-project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.edit-project-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.edit-project-dialog {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.edit-project-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-project-field {
+    margin-bottom: 20px;
+}
+
+.edit-project-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.edit-project-field input,
+.edit-project-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.edit-project-button {
+    text-align: center;
+}

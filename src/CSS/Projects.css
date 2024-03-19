@@ -58,7 +58,7 @@
     background-color: #ECFCFF; 
     border-radius: 3vw;
     display: flex;
-    margin-right: 10vw;
+    margin-right: 1vw;
     align-items: center; /* Aliniază conținutul pe verticală */
     justify-content: center; /* Aliniază conținutul pe orizontală */
 }
