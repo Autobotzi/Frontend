@@ -82,8 +82,8 @@ const AddProjectModal = ({ visible, onHide }) => {
 
     return (
         <div className={`modal-overlay ${visible ? 'show' : 'hide'}`}>
-            <Dialog visible={visible} onHide={onHide} className="modal-content" modal closeOnEscape={false}>
-                <h2>Add Project</h2>
+            <Dialog visible={visible} onHide={onHide} className="modal-content" modal header="Add Department"  closeOnEscape={false}>
+                <div className="modalBox">
                 <label>Name:</label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} />
                 <label>Description:</label>
@@ -99,6 +99,7 @@ const AddProjectModal = ({ visible, onHide }) => {
                 <label>Technology:</label>
                 <input type="text" name="technology" value={formData.technology} onChange={handleChange} />
                 <Button label="Add" onClick={handleAddProject} />
+                </div>
                 </Dialog>
         </div>
     );

@@ -53,10 +53,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35vw; /* Lățimea modalului */
-    width: 500px; /* Lățimea modalului */
-    height: 45vh; /* Lățimea modalului */
-    height: 360px; /* Lățimea modalului */
+    width: 500px; 
+    height: 360px; 
     background-color: #E5F3FE;
     border-radius: 2vw;
     padding: 2vw;
@@ -117,14 +115,14 @@ input:focus{
 
     background-color: yellow;
 }
-.add-department-dialog .p-dialog-header-close-icon {
+.p-dialog-header-close-icon {
     order: 2; /* Plasează butonul de închidere la finalul containerului */
     cursor: pointer; /* Face cursorul să devină de tip pointer la trecerea peste buton */
     padding: 20%;
     border-radius: 10px;
 }
 
-.add-department-dialog .p-dialog-header-close-icon:hover {
+.p-dialog-header-close-icon:hover {
     /* Stilurile pentru efectul de hover */
     background-color: red; /* Schimbă culoarea de fundal */
     color: #E5F3FE; /* Schimbă culoarea textului */
