@@ -28,7 +28,7 @@ const Login = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: ' https://cors-anywhere.herokuapp.com/https://autobotzi-ccec90c77ecb.herokuapp.com/auth/sign-in',
+        url: ' https://autobotzi-ccec90c77ecb.herokuapp.com/auth/sign-in',
         data: formData
       });
       const { token } = response.data;
