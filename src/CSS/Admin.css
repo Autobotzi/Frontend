@@ -41,7 +41,7 @@
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     width: 59vw;
     height: 92%; 
     overflow-y: auto;
@@ -316,3 +316,55 @@
 
 
 
+.searchDepartment{
+    height: 100%;
+    width: 15vw;
+    margin-right: 9vw;
+
+}
+
+.searchDepartment{
+    align-items: center; /* Aliniază conținutul pe verticală */
+    justify-content: center; 
+    text-align: center;
+
+}
+.inputSearchDepartment{
+
+    font-family: 'Arame-Mono';
+    color: #082A3E;
+    background-color: #ECFCFF;
+    border-radius: 1.2vw;
+    border: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    font-size: 1.5vw;
+    align-items: center; /* Aliniază conținutul pe verticală */
+    justify-content: center; /* Aliniază conținutul pe orizontală */
+}
+
+
+.inputSearchDepartment:focus::placeholder {
+    opacity: 0; /* Placeholder-ul va fi invizibil atunci când inputul este activat */
+}
+
+.inputSearchDepartment:focus{
+    outline: none; /* Remove default focus outline */
+}
+
+.inputSearchDepartment:focus {
+
+    opacity: 1;
+    transition: all 0.2s ease;
+    top: 105%; 
+}
+.inputSearchDepartment::placeholder
+{
+    text-align: center;
+    font-size: 1.5vw;
+    color: #082A3E;
+    font-family: 'Arame-Mono';
+    top:50%;
+}

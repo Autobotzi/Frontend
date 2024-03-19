@@ -20,6 +20,7 @@ const Admin = () => {
   const [departments, setDepartments] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +87,10 @@ const fetchUser = async (email) => {
 const handleAddModalToggle = () => {
     setShowAddModal(prevState => !prevState);
 };
-
+const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  
 return (
     <div className="AdminContainer">
         <Navbar />
@@ -94,23 +98,37 @@ return (
             <div className="AddRow">
                 <div className="namePageDep"><p className="titleDep">Departments</p></div>
                 <div className="addDep"><Link className="addDepIcon" onClick={handleAddModalToggle}><MdAdd /></Link> <div className="tooltipDep">Add Department</div></div>
+                <div className="searchDepartment">
+                        <input
+                            className="inputSearchDepartment"
+                            type="text"
+                            placeholder="Search"
+                            value={searchTerm}
+                            onChange={handleSearchChange} // Call handleSearchChange on input change
+                          
+                        />
+                    </div>
             </div>
+
             <div className="DepListContainer">
-               {departments.map((department, index) => (
-        <DepartmentCard
-          key={index}
-          name={department.name}
-          manager={department.departmentManager}
-          description={department.description}
-        />
-      ))}
-             
-            </div>
+
+  {departments
+    .filter(department => department.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map((department, index) => (
+      <DepartmentCard
+        key={index}
+        name={department.name}
+        manager={department.departmentManager}
+        description={department.description}
+      />
+    ))}
+</div>
+
         </div>
         <div className="OthersContainer">
             <div className="ProfileRectangle">
                 <img src={RectangleBackground} alt="" className="RectangleBackground" />
-                <img src={EditIcon} alt="" className="EditIcon" />
+                <Link to="/profile" className=""><img src={EditIcon} alt="" className="EditIcon" /></Link>
                 <p className="titleProfile">Profile</p>
                 <img src={PhotoProfile} alt="" className="PhotoProfile" />
                 {user && (

@@ -24,7 +24,7 @@ const AppHome = () => {
   const [error, setError] = useState(null);
   const [editing, setEditing] = useState(false); // State to track editing status
   const [userToEdit, setUserToEdit] = useState(null); // State to store the user being edited
-
+  const [projectDetails, setProjectDetails] = useState({});
   useEffect(() => {
     const email = sessionStorage.getItem('email');
     if (email) {
@@ -128,6 +128,27 @@ const AppHome = () => {
       console.error("Error deleting user:", error);
     }
   };
+  const fetchProjectDetails = async (departmentName) => {
+    try {
+      const token = sessionStorage.getItem('token');
+      const response = await axios.get(`https://autobotzi-ccec90c77ecb.herokuapp.com/projects/ttt`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      // Set the project details state
+      setProjectDetails(response.data);
+    } catch (error) {
+      setError(error);
+      console.error("Error fetching project details:", error);
+    }
+  };
+  
+  useEffect(() => {
+    // Fetch project details when the component mounts
+    fetchProjectDetails(departmentName);
+  }, [departmentName]);
   
   
 
@@ -146,12 +167,21 @@ const AppHome = () => {
             <div className="AboutProject-Home"><p className="titleDep-Home">About Project</p></div>
           </div>
           <img src={AboutProjectBackground} alt="" className="AboutProjectBackground" />
+          <div className="projectDetails">
+    <p>Name: {projectDetails.name}</p>
+    <p>Description: {projectDetails.description}</p>
+    <p>Period: {projectDetails.period}</p>
+    <p>Project Status: {projectDetails.projectStatus}</p>
+    <p>Start Date: {projectDetails.startDate}</p>
+    <p>Deadline: {projectDetails.deadLine}</p>
+    <p>Technology: {projectDetails.technology}</p>
+  </div>
         </div>
       </div>
       <div className="OthersContainer">
         <div className="ProfileRectangle">
           <img src={RectangleBackground} alt="" className="RectangleBackground" />
-          <img src={EditIcon} alt="" className="EditIcon" />
+          <Link to="/profile" className=""> <img src={EditIcon} alt="" className="EditIcon" /></Link>
           <p className="titleProfile">Profile</p>
           <img src={PhotoProfile} alt="" className="PhotoProfile" />
           {user && (
