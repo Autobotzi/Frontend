@@ -5,7 +5,7 @@ import DepProfileImage from "../DepartmentCard-images/DepProfileImage.png";
 import { Button } from 'primereact/button';
 import FavoriteButton from "../Imagini/FavoriteButton.png";
 
-const ProjectCard = () => {
+const ProjectCard =({ name,  startDate, deadline }) => {
     
   
   return (  
@@ -16,16 +16,16 @@ const ProjectCard = () => {
         <img src={DepProfileImage} alt="" className="ProjectImg-Style" />
          <div className="ProjectCardFields">
           <div className="ProjectFildGap">
-            <div className="ProjectFieldContentLabel">Desing</div>
+            <div className="ProjectFieldContentLabel">{name || "Empty"}</div>
             <div className="ProjectFieldNameLabel">Department Name</div>
           </div>
           <div className="ProjectFildGap">
-            <div className="ProjectFieldContentLabel">Dorel</div>
-            <div className="ProjectFieldNameLabel">Department Manager</div>
+            <div className="ProjectFieldContentLabel">{startDate || "Empty"}</div>
+            <div className="ProjectFieldNameLabel">Start Date</div>
           </div>
           <div className="ProjectFildGap">
-            <div className="ProjectFieldContentLabel">15</div>
-            <div className="ProjectFieldNameLabel">Members</div>
+            <div className="ProjectFieldContentLabel">{deadline || "Empty"}</div>
+            <div className="ProjectFieldNameLabel">Deadline</div>
           </div>
 
         </div>
