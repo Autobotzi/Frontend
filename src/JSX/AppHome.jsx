@@ -167,7 +167,7 @@ const AppHome = () => {
             <div className="AboutProject-Home"><p className="titleDep-Home">About Project</p></div>
           </div>
           <img src={AboutProjectBackground} alt="" className="AboutProjectBackground" />
-          <div className="projectDetails">
+          {/* <div className="projectDetails">
     <p>Name: {projectDetails.name}</p>
     <p>Description: {projectDetails.description}</p>
     <p>Period: {projectDetails.period}</p>
@@ -175,7 +175,7 @@ const AppHome = () => {
     <p>Start Date: {projectDetails.startDate}</p>
     <p>Deadline: {projectDetails.deadLine}</p>
     <p>Technology: {projectDetails.technology}</p>
-  </div>
+  </div> */}
         </div>
       </div>
       <div className="OthersContainer">
