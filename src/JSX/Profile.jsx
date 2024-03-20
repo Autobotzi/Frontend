@@ -11,12 +11,14 @@ import MessageImage from "../Imagini/MessageImage.png";
 import axios from 'axios';
 import { MdAdd, MdEdit, MdDelete } from "react-icons/md";
 import AddSkillModal from "./AddSkillModal";
+import SendMessageModal from "../JSX/SendMessageModal";
 
 const Profile = () => {
     const [user, setUser] = useState({});
     const [role, setRole] = useState('');
     const [skills, setSkills] = useState([]);
     const [isAddSkillModalOpen, setIsAddSkillModalOpen] = useState(false);
+    const [isSendMessageModalOpen, setIsSendMessageModalOpen] = useState(false); 
 
     useEffect(() => {
         const email = sessionStorage.getItem('email');
@@ -83,7 +85,13 @@ const Profile = () => {
     const closeAddSkillModal = () => {
         setIsAddSkillModalOpen(false);
     };
+    const openSendMessageModal = () => {
+        setIsSendMessageModalOpen(true);
+    };
 
+    const closeSendMessageModal = () => {
+        setIsSendMessageModalOpen(false);
+    };
     return (
         <div className="ProfileContainer">
             <Navbar />
@@ -102,7 +110,7 @@ const Profile = () => {
                             <p className="LabelInfoProfile">{user.email}</p>
                         )}
                         <p className="NameLabelProfile">Email</p>
-                        <div className="MessageRow">
+                        <div className="MessageRow" onClick={openSendMessageModal}>
                             <img src={MessageImage} alt="" className="MessageImage" />
                             <p className="MessageLabel">Send message</p>
                         </div>
@@ -135,6 +143,7 @@ const Profile = () => {
                 </div>
             </div>
             <AddSkillModal isOpen={isAddSkillModalOpen} onClose={closeAddSkillModal} />
+            <SendMessageModal isOpen={isSendMessageModalOpen} onClose={closeSendMessageModal} />
         </div>
     );
 };

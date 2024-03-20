@@ -1,0 +1,44 @@
+/* SendMessageModal.css */
+
+/* Overlay */
+
+
+/* Dialog */
+.send-message-dialog {
+    width: 400px; /* Adjust the width as needed */
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Content */
+.send-message-content {
+    padding: 20px;
+}
+
+/* Form fields */
+.send-message-field {
+    margin-bottom: 20px;
+}
+
+.send-message-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.send-message-field input[type="text"],
+.send-message-field textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Button */
+.send-message-button {
+    text-align: center;
+}
+
+/* Close button */
+.send-message-dialog .ui-dialog-titlebar-close {
+    display: none; /* Hide the default close button */
+}
