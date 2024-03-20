@@ -52,6 +52,9 @@ font-size: 1vw;
     align-items: flex-start;
     flex-direction: column;
     gap:0.1vw;
+    max-width: 27vw;
+    overflow: hidden;
+
 }
 .ProjectCardFields
 {

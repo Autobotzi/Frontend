@@ -98,53 +98,39 @@ const AppHome = () => {
 
   // Function to handle delete action
   // Function to handle delete action
-  const handleDelete = async (email) => {
-    try {
-        const token = sessionStorage.getItem('token');
-        if (!token) {
-            console.error("Token not found in sessionStorage.");
-            return;
-        }
+ // Function to handle delete action
+const handleDelete = async (email) => {
+  try {
+      const token = sessionStorage.getItem('token');
+      if (!token) {
+          console.error("Token not found in sessionStorage.");
+          return;
+      }
 
-        // Construct the URL with the email parameter
-        const url = `https://autobotzi-ccec90c77ecb.herokuapp.com/departments/members/delete?email=${email}`;
+      // Encode the email using encodeURIComponent
+      const encodedEmail = encodeURIComponent(email);
 
-        // Make the DELETE request
-        await axios.delete(url, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
+      // Construct the URL with the encoded email parameter
+      const url = `https://autobotzi-ccec90c77ecb.herokuapp.com/user/delete-everywhere?email=${encodedEmail}`;
 
-        // After successful deletion, refetch users by department
-        fetchUsersByDepartment(departmentName);
-    } catch (error) {
-        console.error("Error deleting user:", error);
-    }
+      // Make the DELETE request
+      await axios.delete(url, {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      });
+
+      // After successful deletion, refetch users by department
+      fetchUsersByDepartment(departmentName);
+  } catch (error) {
+      console.error("Error deleting user:", error);
+  }
 };
 
-  const fetchProjectDetails = async (departmentName) => {
-    try {
-      const token = sessionStorage.getItem('token');
-      const response = await axios.get(`https://autobotzi-ccec90c77ecb.herokuapp.com/projects/ttt`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+
+ 
   
-      // Set the project details state
-      setProjectDetails(response.data);
-    } catch (error) {
-      setError(error);
-      console.error("Error fetching project details:", error);
-    }
-  };
-  
-  useEffect(() => {
-    // Fetch project details when the component mounts
-    fetchProjectDetails(departmentName);
-  }, [departmentName]);
-  
+ 
   
 
 
@@ -162,15 +148,7 @@ const AppHome = () => {
             <div className="AboutProject-Home"><p className="titleDep-Home">About Project</p></div>
           </div>
           <img src={AboutProjectBackground} alt="" className="AboutProjectBackground" />
-          {/* <div className="projectDetails">
-    <p>Name: {projectDetails.name}</p>
-    <p>Description: {projectDetails.description}</p>
-    <p>Period: {projectDetails.period}</p>
-    <p>Project Status: {projectDetails.projectStatus}</p>
-    <p>Start Date: {projectDetails.startDate}</p>
-    <p>Deadline: {projectDetails.deadLine}</p>
-    <p>Technology: {projectDetails.technology}</p>
-  </div> */}
+         
         </div>
       </div>
       <div className="OthersContainer">

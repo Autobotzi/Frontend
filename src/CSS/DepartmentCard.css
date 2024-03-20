@@ -25,6 +25,7 @@
     align-items: flex-start;
     flex-direction: column;
     gap:0vw;
+   
 }
 
 .DepImg-Style
@@ -36,6 +37,7 @@
 .FieldContentLabel{
 font-family: 'Arame-Mono', sans-serif;
 font-size: 2.5vw;
+
 }
 .FieldNameLabel{
 font-family: 'Arame-Mono', sans-serif;
@@ -49,6 +51,9 @@ font-size: 1vw;
     align-items: flex-start;
     flex-direction: column;
     gap:0.1vw;
+    
+    max-width: 27vw;
+    overflow: hidden;
 }
 .DepCardFields
 {
