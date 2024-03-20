@@ -1,0 +1,21 @@
+.Collumn-Input-SingUpAdmin {
+    position: absolute; 
+    z-index: 2;
+    top:-9.5vw;
+    width: 30vw;
+    height: auto;
+    display: flex;
+    flex-direction: column; /* Set the flex direction to column */
+    justify-content: center;
+    align-items: center;
+    gap:2.25vw;
+}
+
+.Collumn-Input-SingUpAdmin input:-webkit-autofill,
+.Collumn-Input-SingUpAdmin input:-webkit-autofill:hover, 
+.Collumn-Input-SingUpAdmin input:-webkit-autofill:focus, 
+.Collumn-Input-SingUpAdmin input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 40px #048097 inset !important;
+    -webkit-text-fill-color: white !important;
+
+}
