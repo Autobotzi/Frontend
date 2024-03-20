@@ -56,15 +56,15 @@ const SendMessageModal = ({ isOpen, onClose }) => {
                 <div className="send-message-content">
                     <div className="send-message-field">
                         <label htmlFor="recipient">Recipient</label>
-                        <input id="recipient" type="text" name="recipient" value={formData.recipient} onChange={handleChange} />
+                        <input id="recipient" type="text" name="recipient" value={formData.recipient} className="inputModalBox" onChange={handleChange} />
                     </div>
                     <div className="send-message-field">
                         <label htmlFor="subject">Subject</label>
-                        <input id="subject" type="text" name="subject" value={formData.subject} onChange={handleChange} />
+                        <input id="subject" type="text" name="subject" value={formData.subject} className="inputModalBox" onChange={handleChange} />
                     </div>
                     <div className="send-message-field">
-                        <label htmlFor="message">Message</label>
-                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} />
+                        <label htmlFor="message" >Message</label>
+                        <textarea id="message" name="message" className="inputModalBox" value={formData.message} onChange={handleChange} />
                     </div>
                     <div className="send-message-button">
                         <Button label="Send" onClick={sendMessage} />

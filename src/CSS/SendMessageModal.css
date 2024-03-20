@@ -5,15 +5,29 @@
 
 /* Dialog */
 .send-message-dialog {
+    padding: 20px;
     width: 400px; /* Adjust the width as needed */
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #E5F3FE;
+    font-family: 'Arame-Mono';
+    text-align: center;
+    border-radius: 1.5vw;
+    font-size: 25px;
+
 }
 
 /* Content */
 .send-message-content {
     padding: 20px;
 }
+
+.send-message-content label {
+    font-size: 15px;
+    text-align: left;
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;}
 
 /* Form fields */
 .send-message-field {
@@ -25,13 +39,7 @@
     margin-bottom: 5px;
 }
 
-.send-message-field input[type="text"],
-.send-message-field textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
+
 
 /* Button */
 .send-message-button {
